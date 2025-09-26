@@ -1,3 +1,37 @@
 <resources>
+    <!-- App -->
     <string name="app_name">EMICalculatorApp_RushdaKhan</string>
+    <string name="app_title">Personal Finance Manager</string>
+
+    <!-- Screen labels -->
+    <string name="main_screen">Main Screen</string>
+    <string name="income_expenses_screen"><![CDATA[Income & Expenses Screen]]></string>
+    <string name="budget_balance_screen">Budget Balance Screen</string>
+
+    <!-- Subtitle -->
+    <string name="emi_subtitle">Calculate your monthly EMI. Choose tenure in years or months.</string>
+
+    <!-- Hints -->
+    <string name="hint_loan_amount">Loan amount</string>
+    <string name="hint_interest_rate">Annual interest rate (%)</string>
+    <string name="hint_tenure_value">Tenure value</string>
+    <string name="hint_tenure_unit">Tenure unit</string>
+
+    <!-- Units -->
+    <string name="unit_years">Years</string>
+    <string name="unit_months">Months</string>
+
+    <!-- Buttons -->
+    <string name="btn_calculate_emi">Calculate EMI</string>
+    <string name="btn_reset">Reset</string>
+    <string name="btn_next_income_expense"><![CDATA[Next: Income & Expenses]]></string>
+
+    <!-- Result -->
+    <string name="label_monthly_emi">Your Monthly EMI</string>
+
+    <!-- Errors -->
+    <string name="error_fill_all_fields">Please fill in all fields.</string>
+    <string name="error_loan_invalid">Enter a valid loan amount &gt; 0.</string>
+    <string name="error_rate_invalid">Enter a valid annual interest rate &gt; 0.</string>
+    <string name="error_tenure_invalid">Enter a valid tenure &gt; 0.</string>
 </resources>

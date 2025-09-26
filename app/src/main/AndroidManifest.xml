@@ -11,12 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EMICalculatorApp_RushdaKhan">
+
+        <!-- Screen 3: Budget Balance -->
+        <activity
+            android:name=".BudgetBalanceActivity"
+            android:exported="false" />
+
+        <!-- Screen 2: Income & Expenses -->
+        <activity
+            android:name=".IncomeExpenseActivity"
+            android:exported="false" />
+
+        <!-- Screen 1: Main (launcher) -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
