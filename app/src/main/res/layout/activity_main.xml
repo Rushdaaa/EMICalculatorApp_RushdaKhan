@@ -6,27 +6,15 @@
     android:orientation="vertical"
     android:background="@android:color/white">
 
-    <!-- Top App Bar -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        android:title="@string/app_title"
-        android:titleTextColor="@android:color/white"
-        app:titleCentered="true" />
+        app:title="@string/personal_finance_manager"
+        app:titleCentered="true"
+        app:titleTextColor="@android:color/white" />
 
-    <!-- Tab Layout -->
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tabIndicatorColor="@android:color/white"
-        app:tabSelectedTextColor="@android:color/white"
-        app:tabTextColor="@android:color/darker_gray"
-        android:background="?attr/colorPrimary" />
-
-    <!-- Scrollable content -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,99 +23,71 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="start"
             android:orientation="vertical">
 
-            <!-- Loan Amount -->
+            <!-- ===== EMI BLOCK ===== -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:gravity="start"
+                android:text="@string/emi_calculator"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/loan_amount"
-                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etLoan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
                 android:hint="@string/hint_loan_amount"
                 android:inputType="numberDecimal"
-                android:minHeight="48dp" />
+                android:layout_marginBottom="12dp" />
 
-            <!-- Interest Rate -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:gravity="start"
                 android:text="@string/annual_interest_rate"
-                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
                 android:hint="@string/hint_interest_rate"
                 android:inputType="numberDecimal"
-                android:minHeight="48dp" />
+                android:layout_marginBottom="12dp" />
 
-            <!-- Tenure -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:gravity="start"
                 android:text="@string/tenure_years"
-                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/etTenure"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
                 android:hint="@string/hint_tenure_value"
                 android:inputType="number"
-                android:minHeight="48dp" />
+                android:layout_marginBottom="12dp" />
 
-
-            <!-- Payment Frequency -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
                 android:text="@string/payment_frequency"
                 android:textStyle="bold" />
 
             <RadioGroup
                 android:id="@+id/rgFrequency"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:gravity="start"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
 
                 <RadioButton
                     android:id="@+id/rbMonthly"
@@ -151,14 +111,11 @@
                     android:text="@string/weekly" />
             </RadioGroup>
 
-            <!-- Buttons -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:layout_margin="12dp"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
 
                 <Button
                     android:id="@+id/btnCalculate"
@@ -167,30 +124,31 @@
                     android:layout_weight="1"
                     android:text="@string/btn_calculate_emi" />
 
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="wrap_content" />
+
                 <Button
                     android:id="@+id/btnReset"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
                     android:layout_weight="1"
                     android:text="@string/btn_reset" />
             </LinearLayout>
 
-            <!-- EMI Result Box -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
                 android:background="#EEEEEE"
                 android:elevation="4dp"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:layout_marginBottom="24dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:text="@string/label_monthly_emi"
+                    android:text="@string/your_monthly_emi"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
@@ -199,10 +157,154 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/emi_placeholder"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <!-- ===== INCOME BLOCK ===== -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/monthly_income"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etIncome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_your_monthly_income"
+                android:inputType="numberDecimal"
+                android:layout_marginTop="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <Button
+                    android:id="@+id/btnSaveIncome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save" />
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/btnEditIncome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edit" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E8F5E9"
+                android:orientation="vertical"
+                android:padding="12dp"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:id="@+id/tvIncomeSaved"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="@string/monthly_income_0_00"
                     android:textStyle="bold" />
             </LinearLayout>
+
+            <!-- ===== EXPENSES BLOCK ===== -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/monthly_expenses"
+                android:layout_marginBottom="10dp"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <!-- List box with its own scroll -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="vertical"
+                android:background="#EEEEEE"
+                android:elevation="4dp"
+                android:padding="8dp"
+                android:layout_marginTop="8dp">
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true">
+
+                    <LinearLayout
+                        android:id="@+id/expensesContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+                </androidx.core.widget.NestedScrollView>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnAddExpense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_expense"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFEBEE"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginBottom="24dp">
+
+                <TextView
+                    android:id="@+id/tvExpensesTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="@string/total_monthly_expenses_0_00"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- ===== BUDGET BLOCK ===== -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/budget_balance"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E3F2FD"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvBudget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/monthly_savings_0_00"
+                    android:textStyle="bold"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
