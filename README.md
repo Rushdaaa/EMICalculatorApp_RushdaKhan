@@ -1,110 +1,87 @@
-💼 Personal Finance Manager – EMI Calculator App
+# Personal Finance Manager – EMI Calculator App
 
-This Android app helps users calculate mortgage EMI (Equated Monthly Installments), record their income, track expenses, and view their remaining savings or deficit.
+This Android app helps users calculate mortgage EMI (Equated Monthly Installment), track their monthly income and expenses, and view their resulting savings or deficit.  
 
-It was developed as Assignment 1 for SOFE 4640U – Mobile Application Development (Fall 2025) under Dr. Nasim Beigi-Mohammadi.
+It was developed as **Assignment 1** for **SOFE 4640U – Mobile Application Development (Fall 2025)** under Dr. Nasim Beigi-Mohammadi.
 
-✨ Features
+---
 
-Loan EMI Calculator
+## ✨ Features
 
-Enter loan amount, annual interest rate, and tenure.
+- **EMI Calculator**
+  - Input: Loan amount, annual interest rate, tenure (years).
+  - Output: Monthly EMI value (with options for monthly, bi-weekly, and weekly views).
+  - Reset option clears all fields.
 
-Supports different payment frequencies (Monthly, Bi-Weekly, Weekly).
+- **Income Management**
+  - Users can enter and save their monthly income.
+  - Saved income is displayed and can be edited later.
 
-Reset clears all input fields.
+- **Expense Tracking**
+  - Users can add expenses (with types: monthly, daily, recurring).
+  - Each expense is shown as a “bubble” with a delete option.
+  - Supports scrolling through multiple expenses.
 
-Income Input & Management
+- **Budget Balance**
+  - After subtracting EMI and expenses from monthly income, the app shows:
+    - **Monthly Savings** (if positive).
+    - **Monthly Deficit** (if negative).
 
-Users can save their monthly income.
+- **Navigation / Intents**
+  - Main activity launches sub-activities like **Add Expense**.
+  - Add Expense Activity collects expense name, amount, and type, then returns it to the main screen.
 
-Saved values are displayed and editable.
+---
 
-Expense Tracking
+## 🖼 User Interface
 
-Add expenses with categories: Monthly, Daily, Recurring.
+- Uses **Material Toolbar** for headers.
+- Clear sectioning:  
+  - EMI Calculator  
+  - Monthly Income  
+  - Monthly Expenses  
+  - Budget Balance
+- Scrollable views for long lists of expenses.
 
-Daily and recurring entries are converted into monthly equivalents.
+---
 
-Each expense is shown in its own “bubble” with a delete button.
+## 🛠 Tech Stack
 
-Scroll support for long expense lists.
+- **Language:** Kotlin  
+- **Framework:** Android (Material Design components)  
+- **Data Storage:** In-memory (via singleton `AppData` object).  
+  - `AppData` keeps track of income, EMI, and expense list globally.  
+  - `Expense` class converts daily/recurring to monthly equivalents.
 
-Budget Balance Calculation
+---
 
-Computes Monthly Savings (if income > EMI + expenses).
+## 📂 Project Structure
 
-Computes Monthly Deficit (if EMI + expenses > income).
+- `MainActivity.kt` – EMI, income, expenses, and budget balance logic.  
+- `AddExpenseActivity.kt` – UI and logic to add a new expense.  
+- `Expense.kt` – Data model for expenses.  
+- `AppData.kt` – Singleton to persist income, EMI, and expenses.  
+- `res/layout/` – XML layouts for main and add expense screens.  
+- `AndroidManifest.xml` – Registers all activities.  
 
-Navigation / Intents
+---
 
-Button-based navigation between screens using Android intents.
+## 🚀 How to Run
 
-Example: Main screen → Add Expense screen → returns data back.
+1. Clone or download the repo.
+2. Open the project in **Android Studio**.
+3. Run on an emulator or physical device.
+4. Use the **Main Screen** to:
+   - Calculate EMI.
+   - Enter monthly income.
+   - Add expenses.
+   - View savings/deficit under **Budget Balance**.
 
-🛠 Tech Stack
+---
 
-Language: Kotlin
+## 📎 References
 
-Framework: Android SDK with Material Design Components
+- [TD Mortgage Calculator](https://ix0.apps.td.com/en/mortgage-payment-calculator)  
+- Android Studio / Jetpack documentation.
 
-Build System: Gradle
-
-Persistence: In-memory (singleton AppData)
-
-AppData stores EMI, income, and expenses list.
-
-Expense model handles type conversion (monthly/daily/recurring).
-
-📂 Project Structure
-
-MainActivity.kt – EMI calculator, income/expenses UI, budget logic.
-
-AddExpenseActivity.kt – Collects and saves new expenses.
-
-Expense.kt – Data model with helper method toMonthly().
-
-AppData.kt – Singleton to share EMI, income, and expense list.
-
-res/layout/ – XML layouts (activity_main.xml, activity_add_expense.xml).
-
-AndroidManifest.xml – Activity declarations.
-
-🚀 How to Run
-
-Clone this repository:
-
-git clone https://github.com/<your-username>/EMICalculatorApp_RushdaKhan.git
-
-
-Open the project in Android Studio.
-
-Sync Gradle and build the project.
-
-Run on an emulator or physical Android device.
-
-🖼 Screenshots
-
-📌 Paste screenshots here once available (main screen, add expense screen, budget balance view, etc.)
-
-🔮 Future Improvements
-
-💾 Persist data locally (e.g., Room database or SharedPreferences).
-
-🎨 Improve UI for expense “bubbles” (use Material Cards/Chips).
-
-📊 Add charts or summaries for spending categories.
-
-📱 Dark mode toggle.
-
-🌐 (Optional) Integrate with online loan/finance APIs.
-
-📘 About EMI
-
-EMI (Equated Monthly Installment) is a fixed payment made by a borrower to a lender each month. It includes both principal and interest. This app estimates EMI based on loan inputs and helps users plan their budget by combining EMI, income, and expenses.
-
-📎 References
-
-TD Mortgage Calculator
-
-Android Studio / Jetpack documentation
+---
