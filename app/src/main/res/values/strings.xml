@@ -12,10 +12,9 @@
     <string name="emi_subtitle">Calculate your monthly EMI. Choose tenure in years or months.</string>
 
     <!-- Hints -->
-    <string name="hint_loan_amount">Loan amount</string>
-    <string name="hint_interest_rate">Annual interest rate (%)</string>
-    <string name="hint_tenure_value">Tenure value</string>
-    <string name="hint_tenure_unit">Tenure unit</string>
+    <string name="hint_loan_amount">Enter amount $</string>
+    <string name="hint_interest_rate">Enter rate %</string>
+    <string name="hint_tenure_value">Enter # of years</string>
 
     <!-- Units -->
     <string name="unit_years">Years</string>
@@ -34,4 +33,12 @@
     <string name="error_loan_invalid">Enter a valid loan amount &gt; 0.</string>
     <string name="error_rate_invalid">Enter a valid annual interest rate &gt; 0.</string>
     <string name="error_tenure_invalid">Enter a valid tenure &gt; 0.</string>
+    <string name="loan_amount">Loan Amount</string>
+    <string name="annual_interest_rate">Interest Rate</string>
+    <string name="tenure_years">Tenure</string>
+    <string name="payment_frequency">Payment Frequency</string>
+    <string name="monthly">Monthly</string>
+    <string name="bi_weekly">Bi-Weekly</string>
+    <string name="weekly">Weekly</string>
+    <string name="emi_placeholder">—</string>
 </resources>

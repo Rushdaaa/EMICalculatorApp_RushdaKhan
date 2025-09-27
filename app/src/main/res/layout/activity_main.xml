@@ -16,7 +16,7 @@
         android:titleTextColor="@android:color/white"
         app:titleCentered="true" />
 
-    <!-- Tab Layout for navigation -->
+    <!-- Tab Layout -->
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
         app:tabTextColor="@android:color/darker_gray"
         android:background="?attr/colorPrimary" />
 
-    <!-- Scrollable content area -->
+    <!-- Scrollable content -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,84 +35,130 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal">
+            android:gravity="start"
+            android:orientation="vertical">
 
             <!-- Loan Amount -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:gravity="start"
+                android:text="@string/loan_amount"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/etLoan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
                 android:hint="@string/hint_loan_amount"
                 android:inputType="numberDecimal"
-                android:minHeight="48dp"
-                android:layout_marginBottom="16dp" />
+                android:minHeight="48dp" />
 
             <!-- Interest Rate -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:gravity="start"
+                android:text="@string/annual_interest_rate"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/etRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
                 android:hint="@string/hint_interest_rate"
                 android:inputType="numberDecimal"
-                android:minHeight="48dp"
-                android:layout_marginBottom="16dp" />
+                android:minHeight="48dp" />
 
-            <!-- Tenure (years) -->
+            <!-- Tenure -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:gravity="start"
+                android:text="@string/tenure_years"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
             <EditText
                 android:id="@+id/etTenure"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
                 android:hint="@string/hint_tenure_value"
                 android:inputType="number"
-                android:minHeight="48dp"
-                android:layout_marginBottom="24dp" />
+                android:minHeight="48dp" />
+
 
             <!-- Payment Frequency -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Payment Frequency"
-                android:textStyle="bold"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="5dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:text="@string/payment_frequency"
+                android:textStyle="bold" />
 
             <RadioGroup
                 android:id="@+id/rgFrequency"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginBottom="24dp">
+                android:layout_marginBottom="20dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:gravity="start"
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/rbMonthly"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Monthly"
-                    android:checked="true" />
+                    android:checked="true"
+                    android:text="@string/monthly" />
 
                 <RadioButton
                     android:id="@+id/rbBiWeekly"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Bi-weekly"
-                    android:layout_marginStart="16dp" />
+                    android:layout_marginStart="16dp"
+                    android:text="@string/bi_weekly" />
 
                 <RadioButton
                     android:id="@+id/rbWeekly"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Weekly"
-                    android:layout_marginStart="16dp" />
+                    android:layout_marginStart="16dp"
+                    android:text="@string/weekly" />
             </RadioGroup>
 
-            <!-- Row of Buttons -->
+            <!-- Buttons -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginBottom="24dp"
+                android:layout_margin="12dp"
                 android:gravity="center"
-                android:layout_marginBottom="24dp">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnCalculate"
@@ -125,31 +171,38 @@
                     android:id="@+id/btnReset"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="12dp"
                     android:text="@string/btn_reset" />
             </LinearLayout>
 
-            <!-- EMI result -->
-            <TextView
-                android:id="@+id/tvResultLabel"
-                android:layout_width="wrap_content"
+            <!-- EMI Result Box -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/label_monthly_emi"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_margin="20dp"
+                android:background="#EEEEEE"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <TextView
-                android:id="@+id/tvEmiValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="—"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/holo_green_dark"
-                android:layout_marginBottom="24dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/label_monthly_emi"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
+                <TextView
+                    android:id="@+id/tvEmiValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/emi_placeholder"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
