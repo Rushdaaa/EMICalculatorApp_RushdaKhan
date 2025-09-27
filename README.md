@@ -68,7 +68,8 @@ It was developed as **Assignment 1** for **SOFE 4640U – Mobile Application Dev
 
 ## 🚀 How to Run
 
-1. Clone or download the repo.
+1. Clone or download the repo: 
+   [https://github.com/your-username/EMICalculatorApp_RushdaKhan](https://github.com/your-username/EMICalculatorApp_RushdaKhan)  
 2. Open the project in **Android Studio**.
 3. Run on an emulator or physical device.
 4. Use the **Main Screen** to:
@@ -76,6 +77,24 @@ It was developed as **Assignment 1** for **SOFE 4640U – Mobile Application Dev
    - Enter monthly income.
    - Add expenses.
    - View savings/deficit under **Budget Balance**.
+
+---
+
+## 📸 Screenshots
+
+> *(Add your screenshots here once ready – e.g. Main screen, Add Expense screen, Budget Balance screen, etc.)*
+
+---
+
+## 🌱 Future Improvements
+
+- Persist data locally using Room or SharedPreferences so values remain after closing the app.  
+- Use RecyclerView instead of LinearLayout for displaying expenses (more efficient for long lists).  
+- Improve expense “bubble” design using Material CardView or Chips.  
+- Add categories and filtering for expenses (e.g., Food, Rent, Utilities).  
+- Provide graphs or charts (e.g., Pie chart for expenses, line chart for monthly savings trends).  
+- Add currency formatting and localization support.  
+- Optional: Dark mode theme toggle.
 
 ---
 
