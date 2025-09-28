@@ -11,8 +11,9 @@
         android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@color/red_dark"
         app:title="@string/add_new_expense"
+        app:titleMarginTop="20dp"
         app:titleTextColor="@android:color/white"
         app:titleCentered="true" />
 
@@ -97,14 +98,16 @@
                     android:id="@+id/btnCancelExpense"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/cancel" />
+                    android:text="@string/cancel"
+                    android:backgroundTint="#E57373"/>
 
                 <Button
                     android:id="@+id/btnSaveExpense"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/save"
-                    android:layout_marginStart="12dp" />
+                    android:layout_marginStart="12dp"
+                    android:backgroundTint="#E57373"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

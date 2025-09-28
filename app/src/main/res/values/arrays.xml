@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Dropdown options for tenure unit -->
-    <string-array name="tenure_units">
-        <item>@string/unit_years</item>
-        <item>@string/unit_months</item>
-    </string-array>
+
 </resources>

@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
+        app:titleMarginTop="20dp"
         app:title="@string/personal_finance_manager"
         app:titleCentered="true"
         app:titleTextColor="@android:color/white" />
@@ -32,7 +33,9 @@
                 android:text="@string/emi_calculator"
                 android:textStyle="bold"
                 android:textSize="20sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp" />
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -139,26 +142,31 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#EEEEEE"
+                android:background="#F3E5F5"
                 android:elevation="4dp"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:layout_marginBottom="24dp">
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="16dp">
 
+                <!-- Header -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/your_monthly_emi"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:text="@string/your_emi"
+                    android:layout_marginBottom="-12dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
 
+                <!-- Value -->
                 <TextView
                     android:id="@+id/tvEmiValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/emi_placeholder"
+                    android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textSize="18sp" />
+                    android:layout_marginTop="4dp"/>
             </LinearLayout>
 
             <!-- ===== INCOME BLOCK ===== -->
@@ -166,6 +174,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/monthly_income"
+                android:layout_marginTop="20dp"
                 android:textStyle="bold"
                 android:textSize="20sp" />
 
@@ -173,9 +182,10 @@
                 android:id="@+id/etIncome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:hint="@string/enter_your_monthly_income"
                 android:inputType="numberDecimal"
-                android:layout_marginTop="8dp" />
+                android:minHeight="48dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -183,12 +193,14 @@
                 android:orientation="horizontal"
                 android:gravity="end"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="16dp">
 
                 <Button
                     android:id="@+id/btnSaveIncome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#4CAF50"
+                    android:textColor="@android:color/white"
                     android:text="@string/save" />
 
                 <Space
@@ -199,6 +211,8 @@
                     android:id="@+id/btnEditIncome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#4CAF50"
+                    android:textColor="@android:color/white"
                     android:text="@string/edit" />
             </LinearLayout>
 
@@ -206,18 +220,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#E8F5E9"
+                android:elevation="4dp"
                 android:orientation="vertical"
-                android:padding="12dp"
-                android:layout_marginBottom="24dp">
+                android:padding="16dp"
+                android:layout_marginBottom="36dp">
 
+                <!-- Header -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/monthly_income"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <!-- Value -->
                 <TextView
                     android:id="@+id/tvIncomeSaved"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/emi_placeholder"
                     android:textSize="16sp"
-                    android:text="@string/monthly_income_0_00"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_marginTop="12dp"/>
             </LinearLayout>
+
 
             <!-- ===== EXPENSES BLOCK ===== -->
             <TextView
@@ -256,8 +282,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/add_expense"
+                android:backgroundTint="#E57373"
+                android:textColor="@android:color/white"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="20dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -272,8 +300,8 @@
                     android:id="@+id/tvExpensesTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/total_monthly_expenses"
                     android:textSize="16sp"
-                    android:text="@string/total_monthly_expenses_0_00"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -285,7 +313,7 @@
                 android:text="@string/budget_balance"
                 android:textStyle="bold"
                 android:textSize="20sp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="8dp" />
 
             <LinearLayout
@@ -294,7 +322,8 @@
                 android:background="#E3F2FD"
                 android:elevation="4dp"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:layout_marginBottom="30dp">
 
                 <TextView
                     android:id="@+id/tvBudget"
@@ -304,6 +333,7 @@
                     android:textStyle="bold"
                     android:textSize="16sp" />
             </LinearLayout>
+
 
         </LinearLayout>
     </ScrollView>

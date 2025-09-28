@@ -2,12 +2,12 @@ package com.example.emicalculatorapp_rushdakhan
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
 import kotlin.math.pow
+import android.view.View
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvExpensesTotal: TextView
     private lateinit var btnAddExpense: Button
 
+    // Budget
     // Budget
     private lateinit var tvBudget: TextView
 
@@ -67,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         tvExpensesTotal = findViewById(R.id.tvExpensesTotal)
         btnAddExpense = findViewById(R.id.btnAddExpense)
 
-        // Budget view
+        // Budget views
         tvBudget = findViewById(R.id.tvBudget)
 
         topAppBar = findViewById(R.id.topAppBar)
@@ -76,10 +77,10 @@ class MainActivity : AppCompatActivity() {
         if (AppData.income > 0) {
             etIncome.setText(AppData.income.toString())
             setIncomeLocked(true)
-            showIncomeSaved()
+            updateIncomeDisplay()
         } else {
             setIncomeLocked(false)
-            hideIncomeSaved()
+            tvIncomeSaved.text = "—"
         }
 
         // EMI handlers
@@ -95,7 +96,7 @@ class MainActivity : AppCompatActivity() {
             if (income != null && income > 0) {
                 AppData.income = income
                 setIncomeLocked(true)
-                showIncomeSaved()
+                updateIncomeDisplay()
                 updateBudget()
             } else {
                 Toast.makeText(this, "Enter a valid income", Toast.LENGTH_SHORT).show()
@@ -103,7 +104,6 @@ class MainActivity : AppCompatActivity() {
         }
         btnEditIncome.setOnClickListener {
             setIncomeLocked(false)
-            hideIncomeSaved()
         }
 
         // Add expense
@@ -169,13 +169,8 @@ class MainActivity : AppCompatActivity() {
         btnEditIncome.isEnabled = locked
     }
 
-    private fun showIncomeSaved() {
-        tvIncomeSaved.visibility = View.VISIBLE
-        tvIncomeSaved.text = "Monthly Income: $${"%.2f".format(AppData.income)}"
-    }
-
-    private fun hideIncomeSaved() {
-        tvIncomeSaved.visibility = View.GONE
+    private fun updateIncomeDisplay() {
+        tvIncomeSaved.text = "$${"%.2f".format(AppData.income)}"
     }
 
     // ==== Expenses UI ====
@@ -184,53 +179,49 @@ class MainActivity : AppCompatActivity() {
         AppData.expenseList.forEachIndexed { index, exp ->
             expensesContainer.addView(makeExpenseBubble(index, exp))
         }
-        tvExpensesTotal.text = "Total Monthly Expenses: $${"%.2f".format(AppData.totalExpensesMonthly())}"
+        tvExpensesTotal.text = getString(
+            R.string.total_monthly_expenses,
+            String.format("$%.2f", AppData.totalExpensesMonthly())
+        )
+
         updateBudget()
     }
 
     private fun makeExpenseBubble(index: Int, exp: Expense): View {
-        val row = LinearLayout(this).apply {
-            orientation = LinearLayout.HORIZONTAL
-            setPadding(24, 16, 24, 16)
-            setBackgroundResource(android.R.drawable.dialog_holo_light_frame)
-            val p = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            )
-            p.setMargins(0, 8, 0, 8)
-            layoutParams = p
+        // Inflate from XML
+        val view = layoutInflater.inflate(R.layout.item_expense, expensesContainer, false)
+
+        val tvName = view.findViewById<TextView>(R.id.tvExpenseName)
+        val tvType = view.findViewById<TextView>(R.id.tvExpenseType)
+        val tvAmount = view.findViewById<TextView>(R.id.tvExpenseAmount)
+        val btnDelete = view.findViewById<ImageButton>(R.id.btnDelete)
+
+        tvName.text = exp.name
+        tvType.text = exp.type
+        tvAmount.text = when (exp.type) {
+            "daily" -> "$${"%.2f".format(exp.amount)} × 30"
+            "recurring" -> "$${"%.2f".format(exp.amount)} × ${exp.times}"
+            else -> "$${"%.2f".format(exp.amount)}"
         }
 
-        val details = TextView(this).apply {
-            val right = when (exp.type) {
-                "daily" -> "$${"%.2f".format(exp.amount)} × 30"
-                "recurring" -> "$${"%.2f".format(exp.amount)} × ${exp.times}"
-                else -> "$${"%.2f".format(exp.amount)}"
-            }
-            text = "${exp.name}   (${exp.type})    $right"
-            layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
+        btnDelete.setOnClickListener {
+            AppData.expenseList.removeAt(index)
+            refreshExpensesUI()
         }
 
-        val delete = Button(this).apply {
-            text = "X"
-            setOnClickListener {
-                AppData.expenseList.removeAt(index)
-                refreshExpensesUI()
-            }
-        }
-
-        row.addView(details)
-        row.addView(delete)
-        return row
+        return view
     }
 
     // ==== Budget ====
     private fun updateBudget() {
         val total = AppData.emi + AppData.totalExpensesMonthly()
         val remaining = AppData.income - total
-        tvBudget.text = if (remaining >= 0)
+
+        tvBudget.text = if (remaining >= 0) {
             "Monthly Savings: $${"%.2f".format(remaining)}"
-        else
-            "Monthly Deficit: $${"%.2f".format(-remaining)}"
+        } else {
+            "Monthly Deficit: -$${"%.2f".format(-remaining)}"
+        }
+
     }
 }
