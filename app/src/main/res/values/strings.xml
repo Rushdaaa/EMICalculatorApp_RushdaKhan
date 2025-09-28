@@ -1,67 +1,70 @@
 <resources>
-    <!-- App -->
+    <!-- App Information: Basic application identifiers and titles. -->
     <string name="app_name">EMICalculatorApp_RushdaKhan</string>
     <string name="app_title">Personal Finance Manager</string>
+    <string name="personal_finance_manager">Personal Finance Manager</string>
 
-    <!-- Screen labels -->
+    <!-- Screen Labels: Titles for different screens or sections within the app. -->
     <string name="main_screen">Main Screen</string>
+    <string name="emi_calculator">EMI Calculator</string>
+    <string name="income_expenses"><![CDATA[Income & Expenses]]></string> <!-- Title for income and expenses tracking section -->
+    <string name="add_new_expense">Add New Expense</string> <!-- Title for the add new expense dialog/screen -->
 
-    <!-- Subtitle -->
+    <!-- EMI Calculator Specific Strings: Text related to the EMI calculation feature. -->
     <string name="emi_subtitle">Calculate your monthly EMI. Choose tenure in years or months.</string>
+    <string name="loan_amount">Loan Amount</string>
+    <string name="annual_interest_rate">Interest Rate</string>
+    <string name="tenure_years">Tenure</string> <!-- Label for tenure input, typically in years -->
+    <string name="payment_frequency">Payment Frequency</string>
+    <string name="your_monthly_emi">Your Monthly EMI</string> <!-- Label for displaying the calculated EMI -->
+    <string name="your_emi">Your EMI\n</string> <!-- Alternative label for EMI result display -->
+    <string name="emi_placeholder">—</string> <!-- Placeholder for EMI value before calculation -->
 
-    <!-- Hints -->
+    <!-- Input Hints: Placeholder text for input fields. -->
     <string name="hint_loan_amount">Enter amount $</string>
     <string name="hint_interest_rate">Enter rate %</string>
     <string name="hint_tenure_value">Enter # of years</string>
+    <string name="enter_your_monthly_income">Enter your monthly income</string>
+    <string name="expense_name">Expense name</string> <!-- Hint for expense name input -->
+    <string name="amount">Amount</string> <!-- Hint for monetary amount input -->
+    <string name="of_times"># of times</string> <!-- Hint for number of occurrences (e.g., recurring expenses) -->
 
-    <!-- Units -->
+    <!-- Units and Frequencies: Strings representing units of time or frequency. -->
     <string name="unit_years">Years</string>
     <string name="unit_months">Months</string>
+    <string name="monthly">Monthly</string>
+    <string name="bi_weekly">Bi-Weekly</string>
+    <string name="weekly">Weekly</string>
+    <string name="daily">Daily</string> <!-- Frequency option for expenses -->
+    <string name="recurring">Recurring</string> <!-- Option for recurring expenses -->
 
-    <!-- Buttons -->
+    <!-- Button Labels: Text displayed on interactive buttons. -->
     <string name="btn_calculate_emi">Calculate EMI</string>
     <string name="btn_reset">Reset</string>
+    <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="add_expense">+ Add Expense</string> <!-- Button to add a new expense entry -->
+    <string name="cancel">Cancel</string> <!-- Standard cancel button text -->
+    <string name="delete">Delete\n</string> <!-- Button to delete an item -->
 
-    <!-- Result -->
+    <!-- Result and Display Labels: Text for displaying information and results. -->
     <string name="label_monthly_emi">Your Monthly EMI</string>
+    <string name="monthly_income">Monthly Income</string>
+    <string name="monthly_savings_0_00">Monthly Savings: $0.00</string> <!-- Default display for monthly savings -->
+    <string name="budget_balance">Budget Balance</string>
+    <string name="total_monthly_expenses_0_00">Total Monthly Expenses: $0.00</string> <!-- Default display for total expenses -->
+    <string name="monthly_expenses">Monthly Expenses</string>
+    <string name="monthly_income_0_00">Monthly Income: $0.00</string> <!-- Default display for monthly income -->
+    <string name="total_monthly_expenses">Total Monthly Expenses: %1$s</string> <!-- Formatted string for total expenses -->
+    <string name="monthly_savings">Monthly Savings:</string> <!-- Label for monthly savings amount -->
+    <string name="_0_00">$0.00</string> <!-- Placeholder for zero currency value -->
 
-    <!-- Errors -->
+    <!-- Error Messages: Strings for alerting users to input errors or issues. -->
     <string name="error_fill_all_fields">Please fill in all fields.</string>
     <string name="error_loan_invalid">Enter a valid loan amount &gt; 0.</string>
     <string name="error_rate_invalid">Enter a valid annual interest rate &gt; 0.</string>
     <string name="error_tenure_invalid">Enter a valid tenure &gt; 0.</string>
-    <string name="loan_amount">Loan Amount</string>
-    <string name="annual_interest_rate">Interest Rate</string>
-    <string name="tenure_years">Tenure</string>
-    <string name="payment_frequency">Payment Frequency</string>
-    <string name="monthly">Monthly</string>
-    <string name="bi_weekly">Bi-Weekly</string>
-    <string name="weekly">Weekly</string>
-    <string name="emi_placeholder">—</string>
-    <string name="income_expenses"><![CDATA[Income & Expenses]]></string>
-    <string name="monthly_income">Monthly Income</string>
-    <string name="enter_your_monthly_income">Enter your monthly income</string>
-    <string name="save">Save</string>
-    <string name="edit">Edit</string>
-    <string name="monthly_savings_0_00">Monthly Savings: $0.00</string>
-    <string name="budget_balance">Budget Balance</string>
-    <string name="total_monthly_expenses_0_00">Total Monthly Expenses: $0.00</string>
-    <string name="add_expense">+ Add Expense</string>
-    <string name="monthly_expenses">Monthly Expenses</string>
-    <string name="monthly_income_0_00">Monthly Income: $0.00</string>
-    <string name="your_monthly_emi">Your Monthly EMI</string>
-    <string name="emi_calculator">EMI Calculator</string>
-    <string name="personal_finance_manager">Personal Finance Manager</string>
-    <string name="cancel">Cancel</string>
-    <string name="recurring">Recurring</string>
-    <string name="daily">Daily</string>
-    <string name="of_times"># of times</string>
-    <string name="amount">Amount</string>
-    <string name="expense_name">Expense name</string>
-    <string name="add_new_expense">Add New Expense</string>
-    <string name="total_monthly_expenses">Total Monthly Expenses: %1$s</string>
-    <string name="delete">Delete\n</string>
-    <string name="monthly_savings">Monthly Savings:</string>
-    <string name="_0_00">$0.00</string>
-    <string name="your_emi">Your EMI\n</string>
+
 </resources>
+
+

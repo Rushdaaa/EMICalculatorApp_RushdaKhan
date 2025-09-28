@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -16,6 +18,9 @@
         app:titleCentered="true"
         app:titleTextColor="@android:color/white" />
 
+    <!-- ScrollView allows the content to be scrollable if it exceeds the screen height.
+         This is essential for supporting various screen sizes and orientations. -->
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,6 +32,8 @@
             android:orientation="vertical">
 
             <!-- ===== EMI BLOCK ===== -->
+            <!-- This section is for calculating Equated Monthly Installment (EMI).
+                 It includes input fields for loan amount, interest rate, and tenure, along with options for payment frequency. -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -37,6 +44,7 @@
                 android:layout_marginTop="16dp" />
 
 
+            <!-- Input field for loan amount -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -51,6 +59,7 @@
                 android:inputType="numberDecimal"
                 android:layout_marginBottom="12dp" />
 
+            <!-- Input field for annual interest rate -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -65,6 +74,7 @@
                 android:inputType="numberDecimal"
                 android:layout_marginBottom="12dp" />
 
+            <!-- Input field for tenure in years -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -79,6 +89,7 @@
                 android:inputType="number"
                 android:layout_marginBottom="12dp" />
 
+            <!-- Radio buttons for selecting payment frequency (Monthly, Bi-Weekly, Weekly) -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -114,6 +125,7 @@
                     android:text="@string/weekly" />
             </RadioGroup>
 
+            <!-- Buttons for calculating EMI and resetting the fields -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -139,6 +151,7 @@
                     android:text="@string/btn_reset" />
             </LinearLayout>
 
+            <!-- Display area for the calculated EMI value -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -170,6 +183,8 @@
             </LinearLayout>
 
             <!-- ===== INCOME BLOCK ===== -->
+            <!-- This section allows users to input and save their monthly income.
+                 The saved income is used for budget calculations. -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -178,6 +193,7 @@
                 android:textStyle="bold"
                 android:textSize="20sp" />
 
+            <!-- Input field for monthly income -->
             <EditText
                 android:id="@+id/etIncome"
                 android:layout_width="match_parent"
@@ -187,6 +203,7 @@
                 android:inputType="numberDecimal"
                 android:minHeight="48dp" />
 
+            <!-- Buttons to save or edit the entered income -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -216,6 +233,7 @@
                     android:text="@string/edit" />
             </LinearLayout>
 
+            <!-- Display area for the saved monthly income -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -246,6 +264,8 @@
 
 
             <!-- ===== EXPENSES BLOCK ===== -->
+            <!-- This section is for managing monthly expenses.
+                 Users can add multiple expenses, and the total is displayed. -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -254,7 +274,8 @@
                 android:textStyle="bold"
                 android:textSize="20sp" />
 
-            <!-- List box with its own scroll -->
+            <!-- Container for listing expenses. It has its own scrollbar to manage a potentially long list of expenses.
+                 Each expense item will be dynamically added here. -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -277,6 +298,7 @@
                 </androidx.core.widget.NestedScrollView>
             </LinearLayout>
 
+            <!-- Button to add a new expense item -->
             <Button
                 android:id="@+id/btnAddExpense"
                 android:layout_width="match_parent"
@@ -287,6 +309,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp" />
 
+            <!-- Display area for the total monthly expenses -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -306,7 +329,8 @@
             </LinearLayout>
 
             <!-- ===== BUDGET BLOCK ===== -->
-
+            <!-- This section displays the overall budget balance, calculated as Income - EMI - Expenses.
+                 It gives a quick overview of the user's financial health. -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -316,6 +340,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="8dp" />
 
+            <!-- Display area for the calculated budget balance (monthly savings) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
