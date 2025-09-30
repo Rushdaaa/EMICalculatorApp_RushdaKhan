@@ -82,7 +82,7 @@ It was developed as **Assignment 1** for **SOFE 4640U – Mobile Application Dev
 
 ## 📸 Screenshots
 
-> *(Add your screenshots here once ready – e.g. Main screen, Add Expense screen, Budget Balance screen, etc.)*
+<img width="1054" height="799" alt="image" src="https://github.com/user-attachments/assets/264b9f63-3cea-42f6-bded-3eec3314f98b" />
 
 ---
 
