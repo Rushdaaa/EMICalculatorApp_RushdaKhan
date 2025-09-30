@@ -84,16 +84,14 @@
                     android:text="@string/monthly"
                     android:checked="true" />
 
-                <!-- Button to select 'Daily' expense type. -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnDaily"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text="@string/daily" />
 
-                <!-- Button to select 'Recurring' expense type. -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnRecurring"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
@@ -101,6 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/recurring" />
+
             </com.google.android.material.button.MaterialButtonToggleGroup>
 
             <!-- Button Container -->
